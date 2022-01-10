@@ -1,0 +1,81 @@
+﻿@model SMS.Core.SetupViewModel.VendorSetupViewModel
+
+@{
+    Layout = null;
+    int i = 1;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>S.N.</th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VMunicipality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VWard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VWeb)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.VendorSetupViewModelList)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VMunicipality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VWard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VWeb)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VendorId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VendorId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VendorId })
+            </td>
+        </tr>
+        i++;
+    }
+
+</table>

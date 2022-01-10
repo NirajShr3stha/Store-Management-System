@@ -1,0 +1,162 @@
+﻿@*@model IEnumerable<StoreManagementSystem.Entities.customerSetup>*@
+@model SMS.Core.SetupViewModel.CustomerSetupViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1;
+}
+
+<h2>Customer List</h2>
+
+<input type="text" class="form-control col-md-6 pull-right" placeholder="Search..." id="txtSearch" onkeyup="Search()" />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<style>
+    .replaceable_table {
+        margin: 0px;
+    }
+</style>
+
+<div class="replaceable_table" id="replaceable_table">
+    <table class="table table-bordered">
+        <tr>
+            <th>S.N.</th>
+            @*
+            <th>
+                @Html.DisplayNameFor(model => model.customerId)
+            </th>
+                *@
+            <th>
+                @Html.DisplayNameFor(model => model.cName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cMunicipality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cWard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cWeb)
+            </th>
+            @*
+            <th>
+                @Html.DisplayNameFor(model => model.createdBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.updatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deletedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.deletedDate)
+            </th>
+                *@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.CustomerSetupViewModelList)
+        {
+            <tr>
+                <td>@i</td>
+                @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerId)
+                </td>
+                    *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.cName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.District)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cMunicipality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cWard)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cContact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cWeb)
+                </td>
+                @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createdDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.updatedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.updatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deletedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deletedDate)
+                </td>
+                *@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.customerId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.customerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.customerId })
+                </td>
+            </tr>
+            i++;
+        }
+
+    </table>
+</div>
+
+<script>
+    var Search = function () {
+        var searchValue = $('#txtSearch').val();
+        $.ajax({
+            url: '@Url.Action("_SearchCustomer", "customerSetup")',
+            type: 'GET',
+            data: {
+                cName: searchValue
+            },
+
+            success: function (data) {
+                console.log(data);
+                $('#replaceable_table').empty();
+                $('#replaceable_table').html(data);
+            }
+        });
+    };
+</script>

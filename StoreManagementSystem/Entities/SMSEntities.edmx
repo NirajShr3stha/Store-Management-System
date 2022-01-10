@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorySetup">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="deletedBy" Type="int" />
+          <Property Name="deletedDate" Type="datetime" />
+          <Property Name="imageName" Type="nvarchar" MaxLength="250" />
+          <Property Name="imagePath" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="customerSetup">
+          <Key>
+            <PropertyRef Name="customerId" />
+          </Key>
+          <Property Name="customerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cName" Type="nvarchar" MaxLength="250" />
+          <Property Name="State" Type="nvarchar" MaxLength="250" />
+          <Property Name="District" Type="nvarchar" MaxLength="250" />
+          <Property Name="cMunicipality" Type="nvarchar" MaxLength="250" />
+          <Property Name="cWard" Type="int" />
+          <Property Name="cContact" Type="nvarchar" MaxLength="250" />
+          <Property Name="cEmail" Type="nvarchar" MaxLength="250" />
+          <Property Name="cWeb" Type="nvarchar" MaxLength="250" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="deletedBy" Type="int" />
+          <Property Name="deletedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vendorSetup">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VName" Type="nvarchar" MaxLength="250" />
+          <Property Name="State" Type="nvarchar" MaxLength="250" />
+          <Property Name="District" Type="nvarchar" MaxLength="250" />
+          <Property Name="VMunicipality" Type="nvarchar" MaxLength="250" />
+          <Property Name="VWard" Type="int" />
+          <Property Name="VContact" Type="nvarchar" MaxLength="250" />
+          <Property Name="VEmail" Type="nvarchar" MaxLength="250" />
+          <Property Name="VWeb" Type="nvarchar" MaxLength="250" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="deletedBy" Type="int" />
+          <Property Name="deletedDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="SMSModelStoreContainer">
+          <EntitySet Name="categorySetup" EntityType="Self.categorySetup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customerSetup" EntityType="Self.customerSetup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vendorSetup" EntityType="Self.vendorSetup" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categorySetup">
+          <Key>
+            <PropertyRef Name="categoryID" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="Int32" />
+          <Property Name="deletedDate" Type="DateTime" Precision="3" />
+          <Property Name="imageName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="imagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categorySetup" EntityType="Self.categorySetup" />
+          <EntitySet Name="vendorSetup" EntityType="SMSModel.vendorSetup" />
+          <EntitySet Name="customerSetup" EntityType="SMSModel.customerSetup" />
+        </EntityContainer>
+        <EntityType Name="vendorSetup">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VMunicipality" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VWard" Type="Int32" />
+          <Property Name="VContact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VWeb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="Int32" />
+          <Property Name="deletedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="customerSetup">
+          <Key>
+            <PropertyRef Name="customerId" />
+          </Key>
+          <Property Name="customerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cMunicipality" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cWard" Type="Int32" />
+          <Property Name="cContact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cWeb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="deletedBy" Type="Int32" />
+          <Property Name="deletedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMSModelStoreContainer" CdmEntityContainer="SMSEntities">
+          <EntitySetMapping Name="categorySetup">
+            <EntityTypeMapping TypeName="SMSModel.categorySetup">
+              <MappingFragment StoreEntitySet="categorySetup">
+                <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+                <ScalarProperty Name="imageName" ColumnName="imageName" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="deletedDate" ColumnName="deletedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vendorSetup">
+            <EntityTypeMapping TypeName="SMSModel.vendorSetup">
+              <MappingFragment StoreEntitySet="vendorSetup">
+                <ScalarProperty Name="deletedDate" ColumnName="deletedDate" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="VWeb" ColumnName="VWeb" />
+                <ScalarProperty Name="VEmail" ColumnName="VEmail" />
+                <ScalarProperty Name="VContact" ColumnName="VContact" />
+                <ScalarProperty Name="VWard" ColumnName="VWard" />
+                <ScalarProperty Name="VMunicipality" ColumnName="VMunicipality" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="VName" ColumnName="VName" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customerSetup">
+            <EntityTypeMapping TypeName="SMSModel.customerSetup">
+              <MappingFragment StoreEntitySet="customerSetup">
+                <ScalarProperty Name="deletedDate" ColumnName="deletedDate" />
+                <ScalarProperty Name="deletedBy" ColumnName="deletedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="cWeb" ColumnName="cWeb" />
+                <ScalarProperty Name="cEmail" ColumnName="cEmail" />
+                <ScalarProperty Name="cContact" ColumnName="cContact" />
+                <ScalarProperty Name="cWard" ColumnName="cWard" />
+                <ScalarProperty Name="cMunicipality" ColumnName="cMunicipality" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="cName" ColumnName="cName" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

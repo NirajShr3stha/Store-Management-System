@@ -1,0 +1,117 @@
+﻿@model SMS.Core.SetupViewModel.CustomerSetupViewModel
+
+@{
+    Layout = null;
+    int i = 1;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>S.N.</th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cMunicipality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cWard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cWeb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deletedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deletedDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CustomerSetupViewModelList)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cMunicipality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cWard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cWeb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deletedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.deletedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.customerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.customerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.customerId })
+            </td>
+        </tr>
+        i++;
+    }
+
+</table>
